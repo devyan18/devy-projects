@@ -1,0 +1,39 @@
+.taskitem{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 34px;
+  background-color: #2E3137;
+  padding: 8px;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.taskitem:hover {
+  background-color: #36393E;
+}
+
+.taskitem_seleted {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 34px;
+  background-color: #3E4147;
+  padding: 8px;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.completed {
+  margin-left: 4px;
+}
+
+.span {
+  max-width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}

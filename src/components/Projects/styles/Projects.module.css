@@ -1,0 +1,28 @@
+.projects {
+  min-width: 72px;
+  max-width: 72px;
+  overflow-y: scroll;
+  padding: 4px 0 0 0;
+}
+
+.projects::-webkit-scrollbar-track,
+.projects::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 0px #1f2225;
+  box-shadow: inset 0 0 0px #1f2225;
+  background-color: #1f2225;
+}
+.projects::-webkit-scrollbar,
+.projects::-webkit-scrollbar {
+  width: 0px;
+  background-color: #1f2225;
+}
+.projects::-webkit-scrollbar-thumb,
+.projects::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 0px #1f2225;
+  box-shadow: inset 0 0 0px #1f2225;
+  background-color: #1f2225;
+}
+
+.title_bar {
+  margin-bottom: 10px;
+}

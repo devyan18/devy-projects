@@ -1,0 +1,61 @@
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-synthesis: none;
+  color: var(--text-default);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #202225;
+  overflow: hidden;
+}
+
+.center-form {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+}
+
+.auth-bg > svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  background-color: #202225 !important;
+  min-width: 100%;
+}
+
+.action {
+  stroke: #3aa55d;
+  fill: #3aa55d;
+}
+
+.action:hover {
+  background-color: #3aa55d !important;
+  stroke: #fff;
+  fill: #fff;
+}
+
+.one-letter {
+  font-weight: bold;
+  font-size: 18px;
+}

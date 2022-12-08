@@ -1,0 +1,49 @@
+.card {
+  background-color: #36393F;
+  border-radius: 5px;
+  min-width: 480px;
+}
+
+.content_form {
+  margin: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+
+.input_container {
+  width: 100%;
+  padding: 8px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px
+}
+
+.input_container > label {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  font-weight: bold !important;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.footer > a {
+  font-size: 14px;
+}
+
+.footer > button {
+  min-width: 100%
+}

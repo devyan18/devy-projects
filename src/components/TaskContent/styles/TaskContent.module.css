@@ -1,0 +1,42 @@
+.taskcontent{
+  flex: 1;
+  background-color: #36393E;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.taskcontent_title {
+  max-height: 52px;
+  min-height: 52px;
+  box-shadow: #0A101355 0px 0px 2px 0px, #0E111755 0px 0px 6px 0px;
+}
+
+.task_title{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 48px;
+  max-height: 48px;
+  padding: 0 16px;
+  color: #F2F2F2;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.comments_container {
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.footer {
+  overflow: hidden;
+  background-color: #36393E;
+  min-height: 54px;
+  max-height: 54px;
+  padding: 0px 30px;
+}
