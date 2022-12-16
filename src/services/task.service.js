@@ -25,8 +25,6 @@ export async function createTaskInProject (projectId, task_description) {
 export async function listTasksByProject (projectId) {
   const token = getTokenByLocalStorage();
 
-  console.log(token);
-
   const response = await axios.get(`${baseUrlWithTasks}/${projectId}`, {
     headers: {
       Authorization: bearerParser(token)

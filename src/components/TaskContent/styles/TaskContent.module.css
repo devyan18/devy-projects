@@ -1,15 +1,12 @@
 .taskcontent{
   flex: 1;
   background-color: #36393E;
-  height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .taskcontent_title {
-  max-height: 52px;
-  min-height: 52px;
+  height: 52px;
   box-shadow: #0A101355 0px 0px 2px 0px, #0E111755 0px 0px 6px 0px;
 }
 
@@ -33,10 +30,14 @@
   overflow-y: auto;
 }
 
-.footer {
+
+
+
+/* .footer {
   overflow: hidden;
   background-color: #36393E;
   min-height: 54px;
   max-height: 54px;
-  padding: 0px 30px;
-}
+  min-width: 100%;
+  max-width: 100%;
+} */

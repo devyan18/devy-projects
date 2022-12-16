@@ -1,30 +1,29 @@
 import { CommentItem } from '@components';
 import { useSessionProvider } from '../../providers/SessionProvider';
 import styles from './styles/CommentTimeLine.module.css';
-import { getAllCommentsByTaskId } from '../../services/comment.service';
-import { useEffect, useState } from 'react';
-import { useTasks } from '../../providers/TasksProvider';
 import groupComments from '../../utilities/groupComments';
+import { useEffect, useRef } from 'react';
 
-const CommentTimeLine = () => {
-  const { selectedTask } = useTasks();
+const CommentTimeLine = ({ comments }) => {
+  const scrollToComment = useRef(null);
   const { session } = useSessionProvider();
-  const [comments, setComments] = useState([]);
+
+  const handleScroll = () => {
+    scrollToComment.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
-    if (selectedTask) {
-      getAllCommentsByTaskId(selectedTask._id)
-        .then(setComments);
-    }
-  }, [selectedTask]);
+    handleScroll();
+  }, [comments]);
 
   return (
-    <div className={styles.commenttimeline}>
+    <div className={styles.commenttimeline} >
       {groupComments(comments)?.map((comment) => {
         return (
           <CommentItem key={comment._id} comment={comment} user={session} />
         );
       })}
+      <span ref={scrollToComment}></span>
     </div>
   );
 };

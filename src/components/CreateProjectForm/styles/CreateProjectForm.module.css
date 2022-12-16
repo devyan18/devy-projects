@@ -1,0 +1,115 @@
+.createprojectform{
+  background-color: #36393E;
+  padding: 22px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 600px;
+}
+
+.title {
+  font-size: 32px;
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 12px 0;
+  gap: 20px;
+  padding: 0 0 12px 0;
+  border-bottom: 1px solid #666;
+}
+
+.input_group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.input_group > label {
+  color: #ccd;
+  font-size: 16px;
+  margin: 0;
+}
+
+.input_group > input {
+  margin: 0;
+  background-color: #1F2225;
+  border-radius: 4px;
+  height: 32px;
+  padding: 8px;
+  color: #eef;
+  font-size: 16px;
+  outline: none;
+  border: none;
+}
+
+.description {
+  padding: 0 4px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.logo_selector {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo_selector > img{
+  min-width: 80px;
+  max-width: 80px;
+  min-height: 80px;
+  max-height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo_selector > input {
+  display: none;
+}
+
+.logo_button {
+  width: 140px;
+  height: 28px;
+  border: 1px solid #555;
+  cursor: pointer;
+  background-color: #36393E !important;
+  transition: all .1s ease-in-out;
+  color: #eef;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+.logo_button:hover {
+  background-color: #46494E !important;
+}
+
+.logo_manager {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 20px;
+}
+
+.letter_logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #666;
+  background-color: #36393E;
+  border-radius: 50%;
+  min-width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+}
+
+.letter_logo:hover {
+  background-color: #46494E;
+}

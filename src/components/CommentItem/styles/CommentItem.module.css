@@ -32,11 +32,15 @@
 .comment_contents {
   display: flex;
   flex-direction: column;
-  gap: 8px
+  gap: 6px
 }
 
 .comment_content {
   font-size: 14px;
+  /* max-width: calc(100% - 240px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
 }
 
 .comment_created {

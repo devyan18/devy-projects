@@ -59,3 +59,27 @@ input {
   font-weight: bold;
   font-size: 18px;
 }
+
+.img.action > svg {
+  pointer-events: none;
+}
+
+.portal-styles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #0005;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+}

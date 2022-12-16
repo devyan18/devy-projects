@@ -7,8 +7,6 @@ const TaskBar = ({ tasks, changeSeletedTask, selectedTask }) => {
   const { selectedProject } = useProjectProvider();
   const { session } = useSessionProvider();
 
-  console.log(session);
-
   return (
     <div className={styles.taskbar}>
       <div className={styles.project_title}>

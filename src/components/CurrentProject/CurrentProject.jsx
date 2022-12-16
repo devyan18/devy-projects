@@ -18,16 +18,12 @@ const CurrentProject = () => {
   return (
     <div className={styles.currentproject}>
       <div className={styles.content}>
-        {selectedTask && (
-          <>
             <TaskBar
               tasks={tasks}
               changeSeletedTask={changeSeletedTask}
               selectedTask={selectedTask}
             />
             <TaskContent task={selectedTask} />
-          </>
-        )}
       </div>
     </div>
   );

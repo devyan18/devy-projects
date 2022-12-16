@@ -22,9 +22,13 @@ export default function useProjects () {
 
   useEffect(() => {
     if (projects) {
-      changeSelectedProject(projects[0]._id);
+      changeSelectedProject(projects[0]?._id);
     }
   }, [projects]);
+
+  useEffect(() => {
+    console.log(selectedProject);
+  }, [selectedProject]);
 
   return {
     projects,

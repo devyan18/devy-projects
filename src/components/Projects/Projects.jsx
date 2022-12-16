@@ -1,18 +1,27 @@
-import { Guild } from '@components';
+import { Guild, Portal, CreateProjectForm } from '@components';
+import useModal from '../../hooks/useModal';
 import { AddIcon } from '../../icons';
 import { useProjectProvider } from '../../providers/ProjectsProvider';
 import styles from './styles/Projects.module.css';
 
 const Projects = () => {
-  const {
-    projects,
-    changeSelectedProject,
-    selectedProject,
-    isLoading
-  } = useProjectProvider();
+  const { projects, changeSelectedProject, selectedProject, isLoading } =
+    useProjectProvider();
+
+  const { isOpen, toggle } = useModal();
+
+  const handleOpenModal = () => {
+    toggle();
+  };
 
   return (
     <div className={styles.projects}>
+      <Portal
+        show={isOpen}
+        onClose={toggle}
+        content={CreateProjectForm}
+      />
+
       <div className="guild-container">
         <div className="guild separator"></div>
         {isLoading && <p>Cargando...</p>}
@@ -27,10 +36,10 @@ const Projects = () => {
             />
           );
         })}
-        <div className="guild">
+        <div className="guild" onClick={handleOpenModal}>
           <span className="pill"></span>
           <span className="img action">
-            <AddIcon/>
+            <AddIcon />
           </span>
         </div>
       </div>

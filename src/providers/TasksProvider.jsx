@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useContext } from 'react';
 
 const TaskContext = createContext(null);
 
@@ -16,11 +16,6 @@ const TaskProvider = ({ children }) => {
       setSelectedTask(tasks[0]);
     }
   };
-
-  useEffect(() => {
-    console.log(tasks);
-    console.log(selectedTask);
-  }, [tasks, selectedTask]);
 
   return (
     <TaskContext.Provider value={{ tasks, insertTasks, selectedTask, changeSeletedTask }}>

@@ -22,7 +22,6 @@ export async function getAllProjects () {
 
 export async function createNewProject ({ repository_url, project_title }) {
   const token = getTokenByLocalStorage();
-
   return await axios.post(baseUrlWithProjects,
     { repository_url, project_title },
     {

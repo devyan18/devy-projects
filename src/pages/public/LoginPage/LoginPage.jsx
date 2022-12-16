@@ -8,7 +8,6 @@ const LoginPage = () => {
   const setNewSession = useSetNewSession();
 
   const verLog = (data) => {
-    console.log(data);
     if (data.access_token && data.user_data) {
       setNewSession(data.access_token, data.user_data);
       navigate('/private');

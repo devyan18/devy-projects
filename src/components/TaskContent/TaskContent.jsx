@@ -1,10 +1,27 @@
-import { CommentTimeLine } from '@components';
+import { CommentTimeLine, CommentForm } from '@components';
+import { useEffect, useState } from 'react';
+import { getAllCommentsByTaskId } from '../../services/comment.service';
+import { useTasks } from '../../providers/TasksProvider';
 import styles from './styles/TaskContent.module.css';
 
+const pascalCaseParser = (str) => {
+  return `${str[0].toUpperCase()}${str.slice(1)}`;
+};
+
 const TaskContent = ({ task }) => {
-  const pascalCaseParser = (str) => {
-    return `${str[0].toUpperCase()}${str.slice(1)}`;
+  const { selectedTask } = useTasks();
+  const [comments, setComments] = useState([]);
+
+  const getComments = () => {
+    getAllCommentsByTaskId(selectedTask._id)
+      .then(setComments);
   };
+
+  useEffect(() => {
+    if (selectedTask) {
+      getComments();
+    }
+  }, [selectedTask]);
 
   return (
     <div className={styles.taskcontent}>
@@ -13,11 +30,8 @@ const TaskContent = ({ task }) => {
           # {task?.task_description && pascalCaseParser(task?.task_description)}
         </span>
       </div>
-      <div className={styles.comments_container}>
-        <CommentTimeLine />
-      </div>
-      <div className={styles.footer}>
-      </div>
+      <CommentTimeLine comments={comments} />
+      <CommentForm task={task} onFinish={getComments} />
     </div>
   );
 };

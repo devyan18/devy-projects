@@ -1,14 +1,42 @@
+import { useEffect, useState } from 'react';
 import styles from './styles/CommentForm.module.css';
+import { createNewComment } from '../../services/comment.service';
 
-const CommentForm = ({ taskId }) => {
+const CommentForm = ({ task, onFinish }) => {
+  const [content, setContent] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (content.trim()) {
+      createNewComment(task?._id, content)
+        .then(() => {
+          onFinish();
+        })
+        .finally(() => {
+          setContent('');
+        });
+    }
+  };
+
+  useEffect(() => {
+    if (task) {
+      setContent('');
+    }
+  }, [task]);
+
   return (
     <div className={styles.commentform}>
-      <div>
-        <input type="text" />
-        <button type="submit" className="button primary">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder={`Send comment to # ${task?.task_description}`}
+          onChange={(e) => setContent(e.target.value)}
+          value={content}
+        />
+        <button type="submit" className={`button primary ${styles.button}`}>
           send
         </button>
-      </div>
+      </form>
     </div>
   );
 };
