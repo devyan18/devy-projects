@@ -1,5 +1,6 @@
 .taskbar {
-  max-width: 240px;
+  flex:1;
+  max-width: 280px;
   background-color: #2e3137;
   display: flex;
   flex-direction: column;
@@ -11,10 +12,17 @@
   box-shadow: #0a101355 0px 0px 2px 0px, #0e111755 0px 0px 6px 0px;
   font-size: 10px;
   display: flex;
-  padding: 0px 16px;
-  justify-content: start;
+  padding: 0px 8px 0 16px;
+  justify-content: space-between;
   align-items: center;
   color: #ffffff;
+}
+
+.project_title > h2 {
+  width: 160px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .task_list_container {
@@ -33,9 +41,11 @@
   height: 52px;
   background-color: #292b2f;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
   overflow: hidden;
+  padding: 0px 10px;
 }
 
 .avatar {
@@ -54,4 +64,38 @@
   position: relative;
   left: -16px;
   top: 26px
+}
+
+.create_task {
+  background-color: #2E3137;
+  outline: none;
+  border: none;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all .1s ease-in-out;
+  color: #ccc;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create_task:hover {
+  background-color: #36393E;
+} 
+
+.user_data {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.online_text {
+  color: #44bb44;
+  font-size: 12px;
 }

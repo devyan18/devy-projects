@@ -6,20 +6,25 @@
 }
 
 .taskcontent_title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
   height: 52px;
+  margin: 0;
   box-shadow: #0A101355 0px 0px 2px 0px, #0E111755 0px 0px 6px 0px;
 }
 
 .task_title{
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  height: 48px;
-  max-height: 48px;
-  padding: 0 16px;
+  padding: 0 16px 0 4px;
   color: #F2F2F2;
   font-size: 18px;
   font-weight: bold;
+  gap: 8px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .comments_container {
@@ -31,6 +36,10 @@
 }
 
 
+.toggle_completed { 
+  height: 40px;
+}
+
 
 
 /* .footer {
@@ -41,3 +50,19 @@
   min-width: 100%;
   max-width: 100%;
 } */
+
+.setting_task {
+  margin-left: 10px;
+  background-color: transparent;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right:0px;
+}
+
+.setting_task:hover {
+  background-color: #2F3136;
+}

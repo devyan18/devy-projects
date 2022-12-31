@@ -30,7 +30,7 @@ export async function listTasksByProject (projectId) {
       Authorization: bearerParser(token)
     }
   });
-
+  console.log('response.data', response.data);
   return response.data;
 }
 
@@ -44,11 +44,11 @@ export async function getTaskByTaskId (projectId, taskId) {
   });
 }
 
-export async function editTaskByTaskId (taskId, task_description) {
+export async function editTaskByTaskId (taskId, task_description, completed = undefined) {
   const token = getTokenByLocalStorage();
 
   return axios.put(`${baseUrlWithTasks}/${taskId}`,
-    { task_description },
+    { task_description, completed },
     {
       headers: {
         'Content-Type': 'application/json',
@@ -61,14 +61,14 @@ export async function editTaskByTaskId (taskId, task_description) {
 export async function toggleTaskByTaskId (taskId) {
   const token = getTokenByLocalStorage();
 
-  return axios.patch(`${baseUrlWithTasks}/${taskId}`, {
+  return axios.patch(`${baseUrlWithTasks}/${taskId}`, {}, {
     headers: {
       Authorization: bearerParser(token)
     }
   });
 }
 
-export async function removeTaskBytaskId (taskId) {
+export async function removeTaskByTaskId (taskId) {
   const token = getTokenByLocalStorage();
 
   return axios.delete(`${baseUrlWithTasks}/${taskId}`, {

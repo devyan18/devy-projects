@@ -12,7 +12,28 @@
   },
   "tauri": {
     "allowlist": {
-      "all": true
+      "all": true,
+      "dialog": {
+        "all": true,
+        "open": true,
+        "save": true
+      },
+      "http": {
+        "all": true,
+        "request": true
+      },
+      "fs": {
+        "all": true,
+        "readFile": true,
+        "writeFile": true,
+        "readDir": true,
+        "copyFile": true,
+        "createDir": true,
+        "removeDir": true,
+        "removeFile": true,
+        "renameFile": true,
+        "exists": true
+      }
     },
     "bundle": {
       "active": true,
@@ -56,11 +77,13 @@
     "windows": [
       {
         "fullscreen": false,
-        "maximized": false,
-        "resizable": true,
-        "height": 600,
-        "width": 800,
-        "title": "Projects"
+        "maximized": true,
+        "resizable": false,
+        "height": 720,
+        "width": 1024,
+        "minHeight": 720,
+        "maxWidth": 1024,
+        "title": "Devy Projects"
       }
     ]
   }

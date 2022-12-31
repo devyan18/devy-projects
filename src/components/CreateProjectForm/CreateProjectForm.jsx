@@ -11,18 +11,22 @@ const CreateProjectForm = ({ onCancel }) => {
 
   const queryClient = useQueryClient();
 
-  const { isLoading, data, handleChangeData, letters, preview, handleSubmit } = useProjectForm();
+  const { isLoading, data, handleChangeData, letters, preview, handleSubmit } =
+    useProjectForm();
 
   const myCb = (res) => {
     queryClient.invalidateQueries('projects');
     onCancel();
   };
 
+  const myHandleSubmit = (e) => {
+    if (data.project_title && data.repository_url) {
+      handleSubmit(e, myCb);
+    }
+  };
+
   return (
-    <form
-      className={styles.createprojectform}
-      onSubmit={(e) => handleSubmit(e, myCb)}
-    >
+    <form className={styles.createprojectform} onSubmit={myHandleSubmit}>
       <h2>Create new Project</h2>
       <div className={styles.section}>
         <div className={styles.logo_selector}>
@@ -67,6 +71,7 @@ const CreateProjectForm = ({ onCancel }) => {
             placeholder='Example "My Project"'
             value={data.project_title}
             onChange={handleChangeData}
+            autoFocus
           />
         </div>
       </div>
@@ -87,27 +92,32 @@ const CreateProjectForm = ({ onCancel }) => {
           </span>
         </div>
       </div>
-      {isLoading
-        ? (
-        <button type="button" className="button secondary" disabled>
-          Loading...
+      <div className={styles.footer}>
+        <button type="button" className="button danger" onClick={onCancel} disabled={isLoading}>
+          Cancel
         </button>
-          )
-        : (
-        <>
-          {data.project_title
-            ? (
-            <button type="submit" className="button primary">
-              Create Project
-            </button>
-              )
-            : (
-            <button type="button" className="button secondary" disabled>
-              Create Project
-            </button>
-              )}
-        </>
-          )}
+        {isLoading
+          ? (
+          <button type="button" className="button secondary" disabled>
+            Loading...
+          </button>
+            )
+          : (
+          <>
+            {data.project_title && data.repository_url
+              ? (
+              <button type="submit" className="button primary">
+                Create Project
+              </button>
+                )
+              : (
+              <button type="button" className="button secondary" disabled>
+                Create Project
+              </button>
+                )}
+          </>
+            )}
+      </div>
     </form>
   );
 };

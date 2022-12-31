@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { getAllProjects } from '../services/project.service';
+import { createStarterProject, getAllProjects } from '../services/project.service';
 
 export default function useProjects () {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -21,14 +21,15 @@ export default function useProjects () {
   };
 
   useEffect(() => {
-    if (projects) {
-      changeSelectedProject(projects[0]?._id);
+    if (projects?.length > 0 && !selectedProject) {
+      changeSelectedProject(projects[0]._id);
+    } else {
+      createStarterProject()
+        .then((res) => {
+          restOfQuery.refetch();
+        });
     }
   }, [projects]);
-
-  useEffect(() => {
-    console.log(selectedProject);
-  }, [selectedProject]);
 
   return {
     projects,

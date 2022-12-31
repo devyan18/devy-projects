@@ -32,6 +32,7 @@ const CommentForm = ({ task, onFinish }) => {
           placeholder={`Send comment to # ${task?.task_description}`}
           onChange={(e) => setContent(e.target.value)}
           value={content}
+          maxLength="200"
         />
         <button type="submit" className={`button primary ${styles.button}`}>
           send

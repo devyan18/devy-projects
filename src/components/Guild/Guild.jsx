@@ -10,7 +10,7 @@ const Guild = ({ title, active, img, onClick }) => {
           <span className="pill"></span>
           {img
             ? (
-            <img className="img" src={img} />
+            <img className="img" src={img} loading='lazy' />
               )
             : (
             <span className="img one-letter">{title[0].toUpperCase()}</span>

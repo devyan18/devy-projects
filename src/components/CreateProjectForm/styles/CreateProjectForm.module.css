@@ -113,3 +113,10 @@
 .letter_logo:hover {
   background-color: #46494E;
 }
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}

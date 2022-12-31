@@ -2,6 +2,7 @@ import axios from 'axios';
 import { getTokenByLocalStorage } from '../utilities/manageLocalStorage';
 import { getApiUrl } from '../utilities/getBaseUrl';
 import uploadImage from './image.service';
+import { createTaskInProject } from './task.service';
 
 const baseUrl = getApiUrl();
 const baseUrlWithProjects = `${baseUrl}/api/projects`;
@@ -12,6 +13,18 @@ export async function getAllProjects () {
   const token = getTokenByLocalStorage();
 
   const response = await axios.get(baseUrlWithProjects, {
+    headers: {
+      Authorization: bearerParser(token)
+    }
+  });
+
+  return response.data;
+}
+
+export async function getProjectById (projectId) {
+  const token = getTokenByLocalStorage();
+
+  const response = await axios.get(`${baseUrlWithProjects}/${projectId}`, {
     headers: {
       Authorization: bearerParser(token)
     }
@@ -66,6 +79,24 @@ export async function changeProjectLogo (
       }
     }
   );
+
+  return response.data;
+}
+
+export async function createStarterProject () {
+  const token = getTokenByLocalStorage();
+
+  const response = await axios.put(baseUrlWithProjects, {}, {
+    headers: {
+      Authorization: bearerParser(token)
+    }
+  });
+
+  if (response.data) {
+    await createTaskInProject(response.data._id, 'Your First Task!');
+    const project = await getProjectById(response.data._id);
+    return project;
+  }
 
   return response.data;
 }

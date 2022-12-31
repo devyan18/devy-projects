@@ -5,7 +5,7 @@ const CommentItem = ({ comment, user }) => {
   return (
     <div className={styles.commentitem}>
       <picture className={styles.comment_avatar}>
-        <img src={user?.avatar} alt="user avatar" className={styles.comment_avatar_img} />
+        <img src={user?.avatar} alt="user avatar" className={styles.comment_avatar_img} loading='lazy' />
       </picture>
       <section className={styles.comment_container}>
         <header>

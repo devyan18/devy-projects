@@ -29,3 +29,14 @@ export async function createNewComment (taskId, content) {
   });
   return response.data;
 }
+
+export async function deleteAllCommentsFromTask (taskId) {
+  const token = getTokenByLocalStorage();
+
+  const response = await axios.delete(`${baseUrlWithComments}/${taskId}`, {
+    headers: {
+      Authorization: bearerParser(token)
+    }
+  });
+  return response.data;
+}

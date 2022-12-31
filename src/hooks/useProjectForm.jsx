@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import { createTaskInProject } from '../services/task.service';
 import { changeProjectLogo, createNewProject } from '../services/project.service';
 
 export default function useProjectForm () {
@@ -71,18 +72,31 @@ export default function useProjectForm () {
     return string ? string[0].toUpperCase() : 'N';
   };
 
+  const generalTaskCreator = async (project) => {
+    const projectId = project._id;
+    const task_description = 'General';
+
+    await createTaskInProject(projectId, task_description);
+  };
+
   const handleSubmit = (e, cb) => {
     e.preventDefault();
     setIsLoading(true);
-    createNewProject({ ...data })
+    createNewProject(data)
       .then(res => {
-        if (!data.logo) {
-          cb(res);
-        }
-        changeProjectLogo(res.data._id, data.logo)
-          .then(res => cb(res));
-      })
-      .finally(() => setIsLoading(false));
+        generalTaskCreator(res.data)
+          .then(() => {
+            if (!data.logo) {
+              setIsLoading(false);
+              cb(res);
+            }
+            changeProjectLogo(res.data._id, data.logo)
+              .then(res => {
+                setIsLoading(false);
+                cb(res);
+              });
+          });
+      });
   };
 
   useEffect(() => {

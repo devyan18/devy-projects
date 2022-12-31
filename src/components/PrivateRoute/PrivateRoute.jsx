@@ -1,7 +1,7 @@
 import { useSessionProvider } from '../../providers/SessionProvider';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ProjectPrivder from '../../providers/ProjectsProvider';
+import ProjectProvider from '../../providers/ProjectsProvider';
 
 function PrivateRoute ({ children }) {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function PrivateRoute ({ children }) {
     return <p>Loading...</p>;
   }
 
-  return <ProjectPrivder>{children}</ProjectPrivder>;
+  return <ProjectProvider>{children}</ProjectProvider>;
 }
 
 export default PrivateRoute;

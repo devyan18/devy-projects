@@ -16,7 +16,7 @@ export default function ModalContainer ({ content: Content, onClick, onClose }) 
   }, []);
 
   return (
-    <div className="portal-styles" onClick={onClick}>
+    <div className="portal-styles">
       <Content onCancel={onClose}/>
     </div>
   );
